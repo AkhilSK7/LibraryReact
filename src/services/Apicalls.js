@@ -11,3 +11,10 @@ export async function getbookdetail(id) {
 export async function deletebookcall(id) {
   return await axios.delete(`http://127.0.0.1:8000/library/${id}/`);
 }
+
+export async function addbook(data) {
+  let h = { "Content-Type": "multipart/form-data" };
+  return await axios.post("http://127.0.0.1:8000/library/", data, {
+    headers: h,
+  });
+}
