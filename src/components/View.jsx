@@ -10,6 +10,12 @@ function View() {
     // console.log(res.data);
     setbooks(res.data);
   }
+
+  function bookdetail(i) {
+    console.log(i);
+    navigate(`/detail?id=${i}`);
+  }
+
   useEffect(() => {
     fetchbooks();
   }, []);
@@ -46,7 +52,12 @@ function View() {
                   <td>{i.price}</td>
                   <td>{i.language}</td>
                   <td class="ps-5 pt-5">
-                    <a class="btn btn-primary me-2">Details</a>
+                    <a
+                      class="btn btn-primary me-2"
+                      onClick={() => bookdetail(i.id)}
+                    >
+                      Details
+                    </a>
                     <a class="btn btn-primary me-2">Edit</a>
                     <a class="btn btn-danger me-2">Delete</a>
                   </td>
