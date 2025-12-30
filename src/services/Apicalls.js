@@ -7,3 +7,7 @@ export async function getallbooks() {
 export async function getbookdetail(id) {
   return await axios.get(`http://127.0.0.1:8000/library/${id}/`);
 }
+
+export async function deletebookcall(id) {
+  return await axios.delete(`http://127.0.0.1:8000/library/${id}/`);
+}

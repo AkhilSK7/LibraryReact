@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getallbooks } from "../services/Apicalls";
+import { deletebookcall, getallbooks } from "../services/Apicalls";
 
 function View() {
   const [books, setbooks] = useState([]);
@@ -14,6 +14,11 @@ function View() {
   function bookdetail(i) {
     console.log(i);
     navigate(`/detail?id=${i}`);
+  }
+
+  async function deletebook(id) {
+    let res = await deletebookcall(id);
+    navigate("/view");
   }
 
   useEffect(() => {
@@ -59,7 +64,12 @@ function View() {
                       Details
                     </a>
                     <a class="btn btn-primary me-2">Edit</a>
-                    <a class="btn btn-danger me-2">Delete</a>
+                    <a
+                      class="btn btn-danger me-2"
+                      onClick={() => deletebook(i.id)}
+                    >
+                      Delete
+                    </a>
                   </td>
                 </tr>
               ))}
