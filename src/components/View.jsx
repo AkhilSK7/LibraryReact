@@ -15,6 +15,9 @@ function View() {
     console.log(i);
     navigate(`/detail?id=${i}`);
   }
+  function editbook(i) {
+    navigate(`/edit?id=${i}`);
+  }
 
   async function deletebook(id) {
     let res = await deletebookcall(id);
@@ -63,7 +66,12 @@ function View() {
                     >
                       Details
                     </a>
-                    <a class="btn btn-primary me-2">Edit</a>
+                    <a
+                      class="btn btn-primary me-2"
+                      onClick={() => editbook(i.id)}
+                    >
+                      Edit
+                    </a>
                     <a
                       class="btn btn-danger me-2"
                       onClick={() => deletebook(i.id)}

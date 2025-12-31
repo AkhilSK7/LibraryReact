@@ -18,3 +18,10 @@ export async function addbook(data) {
     headers: h,
   });
 }
+
+export async function editbookcall(id, data) {
+  let h = { "Content-Type": "multipart/form-data" };
+  return await axios.put(`http://127.0.0.1:8000/library/${id}/`, data, {
+    headers: h,
+  });
+}
