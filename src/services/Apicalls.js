@@ -25,3 +25,7 @@ export async function editbookcall(id, data) {
     headers: h,
   });
 }
+
+export async function adduser(data) {
+  return await axios.post("http://127.0.0.1:8000/users/", data);
+}
